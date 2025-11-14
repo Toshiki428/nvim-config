@@ -11,7 +11,7 @@ vim.opt.shiftwidth = 4   -- 自動インテント時のスペース数
 vim.opt.softtabstop = 4  -- Tabキーを押した時のスペース数
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "html", "css", "javascript", "typescript", "json", "yaml" },
+    pattern = { "html", "css", "javascript", "typescript", "json", "yaml", "dart" },
     callback = function()
         vim.opt_local.tabstop = 2
         vim.opt_local.shiftwidth = 2
