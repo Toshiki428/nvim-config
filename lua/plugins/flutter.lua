@@ -8,22 +8,13 @@ return {
             "stevearc/dressing.nvim", -- optional for better UI
         },
         config = function()
-            local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
             require("flutter-tools").setup({
                 widget_guides = {
                     enabled = true,
                 },
                 lsp = {
-                    capabilities = capabilities,
-                    on_attach = function(client, bufnr)
-                        -- Set your keymaps
-                        local opts = { buffer = bufnr, noremap = true, silent = true }
-                        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-                        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-                        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-                    end,
+                    on_attach = require("config.lsp_on_attach"),
+                    -- on_attach and capabilities are now handled by the global LSP config
                     init_options = {
                         documentUpdates = false,
                     },
