@@ -9,7 +9,7 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local on_attach = require("config.lsp_on_attach")
 
-            local servers = { "omnisharp" }
+            local servers = { "omnisharp", "pyright" }
 
             -- 1. Apply shared configuration to each server BEFORE they are enabled.
             for _, server_name in ipairs(servers) do
