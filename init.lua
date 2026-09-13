@@ -3,3 +3,5 @@ vim.g.maplocalleader = ","
 require('plugin_manager')
 require('config.settings')
 require('config.markdown')
+require('utils.ime').setup_autoswitch()
+
